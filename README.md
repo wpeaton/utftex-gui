@@ -5,4 +5,4 @@ GUI for UTFTeX. Done in Python using PySide6. Can easily be adapted to PyQt6 wit
 
 My use case is that I often want to put pretty equations in my source code to document the formulas I'm trying to implement.
 
-![screenshot of program](https://github.com/wpeaton/utftex-gui/screenshot.png)
+![screenshot of program](https://github.com/wpeaton/utftex-gui/blob/main/screenshot.png)
