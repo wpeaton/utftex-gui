@@ -20,11 +20,8 @@
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
-      <property name="childrenCollapsible">
-       <bool>false</bool>
-      </property>
       <widget class="QWidget" name="">
-       <layout class="QVBoxLayout" name="verticalLayout_2">
+       <layout class="QVBoxLayout" name="verticalLayout">
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
@@ -86,6 +83,16 @@
               <widget class="QRadioButton" name="rdbNoComment">
                <property name="text">
                 <string>No comments</string>
+               </property>
+               <attribute name="buttonGroup">
+                <string notr="true">bgrpComment</string>
+               </attribute>
+              </widget>
+             </item>
+             <item>
+              <widget class="QRadioButton" name="rdbC">
+               <property name="text">
+                <string>// C et al.</string>
                </property>
                <attribute name="buttonGroup">
                 <string notr="true">bgrpComment</string>
@@ -160,7 +167,7 @@
        </layout>
       </widget>
       <widget class="QWidget" name="">
-       <layout class="QVBoxLayout" name="verticalLayout">
+       <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QLabel" name="label_2">
           <property name="text">

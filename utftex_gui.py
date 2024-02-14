@@ -19,8 +19,9 @@ from enum import Enum
 
 class enumComment(Enum):
     NoComment   = 1
-    Python = 2
-    Matlab = 3
+    C = 2
+    Python = 3
+    Matlab = 4
 
 
 class UTFTexGui(QMainWindow, loadUiType('utftexgui.ui')[0]):
@@ -30,6 +31,7 @@ class UTFTexGui(QMainWindow, loadUiType('utftexgui.ui')[0]):
         self.setupUi(self)
 
         self.bgrpComment.setId(self.rdbNoComment, enumComment.NoComment.value)
+        self.bgrpComment.setId(self.rdbC, enumComment.C.value)
         self.bgrpComment.setId(self.rdbPython, enumComment.Python.value)
         self.bgrpComment.setId(self.rdbMatlab, enumComment.Matlab.value)
                 
@@ -73,6 +75,9 @@ class UTFTexGui(QMainWindow, loadUiType('utftexgui.ui')[0]):
   
     @Slot(int)
     def on_bgrpComment_idClicked(self, b_id):
+        # this event fires whenever a button in the QButtonGroup bgrpComment 
+        # is clicked. id's are assigned to radio buttons in __init__
+        
         # print(f'clicked {b_id}')
         
         output = self.output
@@ -80,7 +85,7 @@ class UTFTexGui(QMainWindow, loadUiType('utftexgui.ui')[0]):
         
         # look at first character in output. if it has a comment character
         # that means we must strip comment characters from output before starting
-        if self.output[0] in ['#', '%']:
+        if self.output[0] in ['/', '#', '%']:
             for i, line in enumerate(output):
                 output[i] = line[4:]
         
@@ -88,8 +93,10 @@ class UTFTexGui(QMainWindow, loadUiType('utftexgui.ui')[0]):
         if b_id == enumComment.NoComment.value:
             pass
         else:
-            # Python or Matlab
-            if b_id == enumComment.Python.value:
+            # C or Python or Matlab
+            if b_id == enumComment.C.value:
+                prefix = '//  '
+            elif b_id == enumComment.Python.value:
                 prefix = '##  '
             elif b_id == enumComment.Matlab.value:
                 prefix = '%%  '
