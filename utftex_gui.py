@@ -13,6 +13,8 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QFontDialog)
 from PySide6 .QtWidgets import QMessageBox as qmb
 from PySide6.QtUiTools import loadUiType
 
+import filever
+
 app = None
 
 from enum import Enum
@@ -42,8 +44,8 @@ class UTFTexGui(QMainWindow, loadUiType('utftexgui.ui')[0]):
         print('cwd  ', os.getcwd())
         fullpath = os.path.join(os.getcwd(), 'utftex_gui.exe')
 
-        # ~ major,minor,subminor,revision=filever.get_version_number(fullpath)
-        major,minor,subminor,revision=0,0,0,0
+        major,minor,subminor,revision=filever.get_version_number(fullpath)
+        #major,minor,subminor,revision=0,0,0,0
         tstring = 'UTFTeX Gui %d.%d.%d' % (major, minor, subminor)
         self.setWindowTitle(tstring)
 
@@ -243,9 +245,9 @@ x_{31} & x_{32} & x_{33}
 
 \int_0^W \\frac{np}{n+p}dx = \int_0^W \\frac{n_0}{exp \left( 
 \\frac{E_0(x-x_0)}{kT} \\right)+exp \left( -\\frac{E_0(x-x_0)}{kT}\\right)}
-dx=\\frac{n_0kT}{E_0} \left[ arctan \left( exp 
+dx = \\frac{n_0kT}{E_0} \left[ arctan \left( exp 
 \left[\\frac{E_0(x-x_0)}{kT}\\right]\\right)\\right]^{x=W}_{x=0}~ 
-\\frac{n_0kT}{E_0} pi
+\\frac{n_0kT}{E_0} \pi
 
 f(x) = \left{\\begin{array}{lr} 
 \\frac{1}{x+1} +12 & \-12<x<0\\\\

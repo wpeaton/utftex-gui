@@ -22,6 +22,6 @@ REM        exef.write(overlay)
 REM    # end of more new code
 
 REM  edit version.txt to change version
-REM python make_version.py
-REM pyi-set_version file_version_info.txt dist\antijam\antijam.exe
+py make_version.py
+pyi-set_version file_version_info.txt dist\utftex_gui\utftex_gui.exe
 pause

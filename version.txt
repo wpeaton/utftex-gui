@@ -1,0 +1,4 @@
+# edit major, minor manually
+# build is automatically incremented. do not touch
+# (major, minor, build, empty)
+filevers=(0, 8, 1, 0),
